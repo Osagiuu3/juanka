@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JUAN MENDEZ Casino</title>
+  <!-- Facebook Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1222433962697275');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1222433962697275&ev=PageView&noscript=1"/></noscript>
+  <!-- End Facebook Pixel -->
+
+  <style>
+    @font-face { font-family: 'Poppins'; font-style: normal; font-weight: 400; src: local('Poppins'), local('Poppins-Regular'); }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      background: repeating-radial-gradient(circle at 50% 50%, #240044 0 4px, #140024 4px 8px);
+      color:#fff;
+      font-family:'Poppins',Arial,sans-serif;
+      text-align:center;
+      padding:16px;
+    }
+    a{color:inherit;text-decoration:none;}
+    h1{font-size:1.6rem;margin-bottom:16px;color:#FFD700;text-shadow:0 0 10px #FFA500;}
+    .wheel-container{position:relative;width:220px;height:220px;margin:0 auto 16px;}
+    .wheel{width:100%;height:100%;border-radius:50%;border:3px solid #fff;display:flex;align-items:center;justify-content:center;
+      background:conic-gradient(#FF4D4D 0deg 60deg,#FFE600 60deg 120deg,#FF7B00 120deg 180deg,#FF4DA6 180deg 240deg,#FFAF00 240deg 300deg,#FF1493 300deg 360deg);
+      transition:transform 2s ease-out;position:relative;}
+    .wheel span{position:absolute;width:80px;font-size:11px;font-weight:700;text-shadow:0 0 2px #000;text-align:center;transform-origin:center center;line-height:1.1;}
+    .wheel span:nth-child(1){transform:rotate(30deg) translateY(-90px) rotate(-30deg);} 
+    .wheel span:nth-child(2){transform:rotate(90deg) translateY(-90px) rotate(-90deg);} 
+    .wheel span:nth-child(3){transform:rotate(150deg) translateY(-90px) rotate(-150deg);} 
+    .wheel span:nth-child(4){transform:rotate(210deg) translateY(-90px) rotate(-210deg);} 
+    .wheel span:nth-child(5){transform:rotate(270deg) translateY(-90px) rotate(-270deg);} 
+    .wheel span:nth-child(6){transform:rotate(330deg) translateY(-90px) rotate(-330deg);} 
+
+    .pointer{position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:0;height:0;
+      border-left:10px solid transparent;border-right:10px solid transparent;border-top:20px solid #fff;z-index:10;}
+
+    .btn{display:block;width:max-content;margin:8px auto;padding:10px 20px;font-family:'Poppins',sans-serif;font-weight:600;font-size:0.95rem;border:none;border-radius:24px;cursor:pointer;color:#fff;letter-spacing:.3px;box-shadow:0 4px 10px rgba(0,0,0,.4);transition:transform .15s ease;background-size:200% auto;}
+    .btn:active{transform:scale(.95);}    
+    .spin-btn{background-image:linear-gradient(45deg,#FFD700 0%,#FFA500 51%,#FFD700 100%);}   
+    .tg-btn{background-image:linear-gradient(45deg,#2AA4F4 0%,#1472B9 51%,#2AA4F4 100%);display:inline-flex;align-items:center;gap:6px;}
+    .tg-btn svg,.claim-btn svg{width:16px;height:16px;fill:#fff;}
+
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;visibility:hidden;opacity:0;transition:.3s ease;z-index:999;}
+    .modal.show{visibility:visible;opacity:1;}
+    .modal-content{background:#222;padding:1.5rem;border-radius:12px;max-width:260px;width:90%;text-align:center;position:relative;}
+    .modal-content h2{color:#FFD700;margin-bottom:10px;font-size:1.2rem;}
+    .claim-btn{background-image:linear-gradient(45deg,#2AA4F4 0%,#1472B9 51%,#2AA4F4 100%);display:inline-flex;align-items:center;gap:6px;font-size:0.9rem;padding:8px 18px;}
+    .close-btn{position:absolute;top:8px;right:12px;background:transparent;border:none;font-size:1.4rem;color:#fff;cursor:pointer;}
+  </style>
+</head>
+<body>
+  <h1>JUAN MENDEZ</h1>
+  <div class="wheel-container">
+    <div class="wheel" id="wheel">
+      <span>BOT<br>OPTIMA</span>
+      <span>BOT<br>ULTIMA</span>
+      <span>$200</span>
+      <span>$100</span>
+      <span>$500</span>
+      <span>BOT<br>AVIATOR</span>
+    </div>
+    <div class="pointer"></div>
+  </div>
+  <button class="btn spin-btn" id="spin">GIRAR</button>
+  <a class="btn tg-btn" href="https://t.me/mendez_moneybot" target="_blank">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.162 2.742 1.736 10.425c-1.518.588-1.512 1.413-.277 1.79l4.792 1.497 1.829 5.709c.216.596.11.83.76.83.5 0 .72-.23 1-.5l2.396-2.333 4.986 3.665c.915.506 1.572.245 1.788-.85l3.238-15.758c.332-1.463-.533-2.116-1.585-1.573Z"/></svg>
+    Reclamar premio
+  </a>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="modal.classList.remove('show')">&times;</button>
+      <h2>¡Felicitaciones!</h2>
+      <p id="prizeText">Has ganado: ---</p>
+      <button class="btn claim-btn" onclick="window.location.href='https://t.me/mendez_moneybot'">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.162 2.742 1.736 10.425c-1.518.588-1.512 1.413-.277 1.79l4.792 1.497 1.829 5.709c.216.596.11.83.76.83.5 0 .72-.23 1-.5l2.396-2.333 4.986 3.665c.915.506 1.572.245 1.788-.85l3.238-15.758c.332-1.463-.533-2.116-1.585-1.573Z"/></svg>
+        Reclamar premio
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const wheel=document.getElementById('wheel');
+    const spinBtn=document.getElementById('spin');
+    const modal=document.getElementById('modal');
+    const prizeText=document.getElementById('prizeText');
+
+    const premios=['BOT OPTIMA','BOT ULTIMA','$200','$100','$500','BOT AVIATOR'];
+    const pointerAngle=270;
+
+    spinBtn.addEventListener('click',()=>{
+      spinBtn.disabled=true;
+      const index=Math.floor(Math.random()*premios.length);
+      const sector=360/premios.length;
+      const offset=sector/2;
+      const rotation=1080+(pointerAngle-(index*sector+offset));
+      wheel.style.transform=`rotate(${rotation}deg)`;
+      setTimeout(()=>{
+        prizeText.textContent=`Has ganado: ${premios[index]}`;
+        modal.classList.add('show');
+        spinBtn.disabled=false;
+      },2200);
+    });
+  </script>
+</body>
+</html>
